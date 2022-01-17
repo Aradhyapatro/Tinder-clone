@@ -1,2 +1,2 @@
 # Tinder-clone
-Tinder-Clone Projext
+Tinder-Clone Project
