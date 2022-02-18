@@ -5,15 +5,12 @@ async function main() {
 }
 main();
 
-const DataSchema = new mongoose.Schema({
+const finalSchema = new mongoose.Schema({
   name: String,
   img: String,
-  heart: { type: Number, default: 0 },
-  thunder: { type: Number, default: 0 },
-  star: { type: Number, default: 0 },
   messages: { type: Array, default: [] },
 });
 
-const Data = mongoose.model("Data", DataSchema);
+const final = mongoose.model("final", finalSchema);
 
-module.exports = Data;
+module.exports.User = final;
