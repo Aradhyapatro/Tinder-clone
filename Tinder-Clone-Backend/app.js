@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const app = express();
 const { User } = require("./model/model");
@@ -9,17 +10,6 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
-
-app.get("/", (req, res) => {
-  User.find((err, data) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
-});
 
 app.post("/addname", (req, res) => {
   var myData = new User(req.body[0]);
@@ -65,5 +55,5 @@ app.put("/:person", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 8080, () => {
-  console.log("Listening");
+  console.log("Listening " + process.env.PORT + " has started");
 });
