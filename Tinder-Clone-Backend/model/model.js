@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
 async function main() {
-  await mongoose.connect("mongodb://localhost:27017/Tinder");
+  await mongoose.connect(process.env.MONGO_DB);
 }
 main();
+
 
 const DataSchema = new mongoose.Schema({
   name: String,
